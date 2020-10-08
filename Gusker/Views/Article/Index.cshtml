@@ -1,0 +1,16 @@
+﻿@using Gusker.Models
+@using Gusker.Models.Article
+
+@model PageViewModel<ArticlesSectionViewModel>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Model.Data.Name</h2>
+<ul>
+@foreach (var article in Model.Data.Articles)
+{
+    <li><a href="@Html.Kentico().ResolveUrls(article.Url)">@article.Title</a></li>    
+}
+</ul>

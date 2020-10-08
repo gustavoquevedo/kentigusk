@@ -1,0 +1,41 @@
+﻿@model Gusker.Models.PageViewModel
+
+<!doctype html>
+<!--[if lt IE 7]> 		<html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]> 			<html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]> 			<html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="en">
+<!--<![endif]-->
+
+<head>
+    @RenderSection("styles", required: false)
+
+    @Html.Partial("PageSetup/_Head", Model.Head)
+</head>
+
+<body>
+    <!-- start header -->
+    @Html.Partial("PageSetup/_Header")
+    <!-- end header -->
+
+    <hr />
+
+    @if (Model.Breadcrumb != null)
+    {
+        <!-- start breadcrumb -->
+        @Html.Partial("Navigation/_Breadcrumb", Model.Breadcrumb)
+        <!-- stop breadcrumb -->
+    }
+
+    @RenderBody()
+
+    <hr />
+
+    <!-- start footer -->
+    @Html.Partial("PageSetup/_Footer", Model)
+    <!-- end footer -->
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

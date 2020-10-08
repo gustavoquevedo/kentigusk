@@ -1,0 +1,11 @@
+﻿@model  CMS.DocumentEngine.Types.Gusker.Contact
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "";
+    var imageUrl = Url.Kentico().ImageUrl(Model.ImagePath, SizeConstraint.MaxWidthOrHeight(300));
+}
+
+<h2>@Model.FullName</h2>
+
+<img src="@imageUrl" alt="@Model.FullName" />

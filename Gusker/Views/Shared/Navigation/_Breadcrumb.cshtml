@@ -1,0 +1,29 @@
+﻿@using Gusker.Business.Dto.Navigation
+
+@model LinkMenuDto
+
+<nav>
+    @foreach (var link in Model.MenuItems)
+    {
+        if (link.Disabled)
+        {
+            @link.Text
+        }
+        else
+        {
+            if (Request.Path == @link.Url)
+            {
+                <span>@link.Text</span>
+            }
+            else
+            {
+                <a href="@link.Url">@link.Text</a>
+            }
+
+        }
+        if (link != Model.MenuItems.Last())
+        {
+            <span> &gt; </span>
+        }
+    }
+</nav>

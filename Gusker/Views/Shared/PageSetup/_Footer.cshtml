@@ -1,0 +1,17 @@
+﻿@model Gusker.Models.PageViewModel
+
+@foreach (var item1stLevel in Model.FooterMenu)
+{
+    <!-- nav -->
+    <nav class="footer__nav">
+        <strong>
+            <a href="@Url.Content(item1stLevel.Parent.Url)" @(item1stLevel.Parent.OpenInNewTab ? " target=\"_blank\"" : "")>@item1stLevel.Parent.Text</a>
+        </strong>
+
+        @foreach (var item2ndLevel in item1stLevel.MenuItems)
+        {
+            <a href="@Url.Content(item2ndLevel.Url)" @(item2ndLevel.OpenInNewTab ? " target=\"_blank\"" : "")>@item2ndLevel.Text</a>
+        }
+    </nav>
+}
+@Html.Partial("Navigation/_FooterNavigation", Model.FooterMenu)

@@ -1,0 +1,55 @@
+﻿@model Gusker.Models.Shared.HeadViewModel
+
+@{
+    var baseUrl = HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority);
+}
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+
+<base href="@(baseUrl)">
+
+<title>@Model.Metadata.MetaTitle</title>
+<meta name="description" content="@Model.Metadata.MetaDescription">
+<meta name="keywords" content="@Model.Metadata.MetaKeywords">
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@("@Gusker")">
+<meta name="twitter:title" content="@Model.Metadata.MetaTitle">
+<meta name="twitter:description" content="@Model.Metadata.MetaDescription">
+<meta name="twitter:creator" content="@("@Gusker")">
+<meta name="twitter:image" content="@(baseUrl)/Content/Images/fbog.png">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="@Model.Metadata.MetaTitle">
+<meta property="og:type" content="website">
+<meta property="og:url" content="@baseUrl">
+<meta property="og:image" content="@(baseUrl)/Content/Images/fbog.png">
+<meta property="og:description" content="@Model.Metadata.MetaDescription">
+<meta property="og:site_name" content="Gusker">
+<meta name="author" content="Gusker">
+<meta name="robots" content="index, follow">
+<link rel="icon" type="image/ico" href="favicon.ico">
+<link rel="shortcut icon" href="@(baseUrl)/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png">
+
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="@Url.Content("~/Content/site.css")">
+
+<!-- scripts -->
+@Scripts.RenderFormat("<script src='{0}' defer></script>", "~/Scripts/site.js")
+
+@if (!string.IsNullOrWhiteSpace(Model.MapsApiKey))
+{
+    <script src="https://maps.googleapis.com/maps/api/js?key=@(Model.MapsApiKey)&callback=initializeAsyncGmapModules&v=3.36" defer></script>
+}
+
+@if (!string.IsNullOrWhiteSpace(Model.GoogleTagManagerID))
+{
+    @Html.Partial("PageSetup/_GoogleTagManager", Model.GoogleTagManagerID)
+}

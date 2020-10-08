@@ -1,0 +1,9 @@
+﻿@model Gusker.Models.PageViewModel
+
+<ul class="header__nav__list js--nav">
+    @foreach (var item in Model.TopMenu)
+    {
+        <li><a href="@Url.Content(item.Url)" @(item.OpenInNewTab ? " target=\"_blank\"" : "")>@item.Text</a></li>
+    }
+</ul>
+@Html.Partial("Navigation/_TopNavigation", Model.TopMenu)

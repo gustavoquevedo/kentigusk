@@ -1,0 +1,10 @@
+﻿@using Gusker.Business.Dto.Navigation
+
+@model IEnumerable<LinkDto>
+
+<ul class="header__nav__list js--nav">
+    @foreach (var item in Model)
+    {
+        <li><a href="@Url.Content(item.Url)" @(item.OpenInNewTab ? " target=\"_blank\"" : "")>@item.Text</a></li>
+    }
+</ul>
