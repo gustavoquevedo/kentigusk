@@ -5898,6 +5898,7 @@
     </Content>
     <Content Include="App_Data\DancingGoat\Resources\dancingGoat.resx" />
     <Content Include="App_Data\DancingGoat\Resources\es-ES\dancingGoat.es-ES.resx" />
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CMSAdminControls\UI\SmartTip.ascx.cs">
