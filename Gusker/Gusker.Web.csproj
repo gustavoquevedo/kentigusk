@@ -810,6 +810,7 @@
     <Content Include="Views\Shared\Navigation\_Breadcrumb.cshtml" />
     <Content Include="Views\Shared\Navigation\_FooterNavigation.cshtml" />
     <Content Include="Views\Shared\Navigation\_TopNavigation.cshtml" />
+    <None Include="Properties\PublishProfiles\IISProfile.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Gusker.Business\Gusker.Business.csproj">
